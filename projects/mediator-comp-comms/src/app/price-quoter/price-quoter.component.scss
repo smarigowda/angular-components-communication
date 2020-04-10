@@ -1,0 +1,13 @@
+button {
+    font-size: 1rem;
+    padding: 1rem;
+    outline: none;
+    border-radius: 5px;
+    &:hover {
+        background-color: darkseagreen;
+    }
+}
+:host {
+    display: block;
+    padding: 1rem;
+}

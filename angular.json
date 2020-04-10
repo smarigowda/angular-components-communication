@@ -123,6 +123,127 @@
           }
         }
       }
+    },
+    "mediator-comp-comms": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/mediator-comp-comms",
+      "sourceRoot": "projects/mediator-comp-comms/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/mediator-comp-comms",
+            "index": "projects/mediator-comp-comms/src/index.html",
+            "main": "projects/mediator-comp-comms/src/main.ts",
+            "polyfills": "projects/mediator-comp-comms/src/polyfills.ts",
+            "tsConfig": "projects/mediator-comp-comms/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/mediator-comp-comms/src/favicon.ico",
+              "projects/mediator-comp-comms/src/assets"
+            ],
+            "styles": [
+              "projects/mediator-comp-comms/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/mediator-comp-comms/src/environments/environment.ts",
+                  "with": "projects/mediator-comp-comms/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "mediator-comp-comms:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mediator-comp-comms:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mediator-comp-comms:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mediator-comp-comms/src/test.ts",
+            "polyfills": "projects/mediator-comp-comms/src/polyfills.ts",
+            "tsConfig": "projects/mediator-comp-comms/tsconfig.spec.json",
+            "karmaConfig": "projects/mediator-comp-comms/karma.conf.js",
+            "assets": [
+              "projects/mediator-comp-comms/src/favicon.ico",
+              "projects/mediator-comp-comms/src/assets"
+            ],
+            "styles": [
+              "projects/mediator-comp-comms/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mediator-comp-comms/tsconfig.app.json",
+              "projects/mediator-comp-comms/tsconfig.spec.json",
+              "projects/mediator-comp-comms/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/mediator-comp-comms/e2e/protractor.conf.js",
+            "devServerTarget": "mediator-comp-comms:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "mediator-comp-comms:serve:production"
+            }
+          }
+        }
+      }
     }},
   "cli": {
     "analytics": "22760ea5-b01d-449a-98e3-c15ecb21adaa"

@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { IPriceQuote } from './shared/price.quote.interface';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,13 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   readonly numOfShares = 100;
+  priceQuote: IPriceQuote;
   stock: string;
   onChangeHandler({ target }) {
     this.stock = target.value;
+  }
+  handlePriceQuote(data: IPriceQuote) {
+    console.log(data);
+    this.priceQuote = data;
   }
 }

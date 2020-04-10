@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, EventEmitter, ViewEncapsulation, Output } from '@angular/core';
 import { IPriceQuote } from '../shared/price.quote.interface';
 import { interval } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { interval } from 'rxjs';
 })
 export class PriceQuoterComponent implements OnInit {
   priceQuote: IPriceQuote;
-  lastPrice = new EventEmitter<IPriceQuote>();
+  @Output() lastPrice = new EventEmitter<IPriceQuote>();
   constructor() {
     interval(2000).subscribe((data) => {
       this.priceQuote = {
@@ -21,5 +21,5 @@ export class PriceQuoterComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

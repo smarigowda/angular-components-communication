@@ -3,5 +3,5 @@
 <input type="text" placeholder="Enter stock  (ex: AAPL" (change)="onChangeHandler($event)" />
 <app-order-processor [stockSymbol]="stock" [quantity]="numOfShares"></app-order-processor>
 <h1>Inside App Component:</h1>
-<h2 class="price-quote">{{priceQuote?.stockSymbol}} {{priceQuote?.lastPrice}}</h2>
+<h2 class="price-quote">{{priceQuote?.stockSymbol}} {{priceQuote?.lastPrice | currency: 'USD'}}</h2>
 <app-price-quoter (lastPrice)="handlePriceQuote($event)"></app-price-quoter>

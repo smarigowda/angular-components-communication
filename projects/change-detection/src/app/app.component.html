@@ -3,4 +3,5 @@
   <label for="">Greeting</label>
   <input type="text" [(ngModel)]="myGreeting" />
   <input type="text" [(ngModel)]="myUser.name" />
+  <app-child [greeting]="myGreeting" [user]="myUser"></app-child>
 </div>

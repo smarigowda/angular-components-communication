@@ -1,0 +1,14 @@
+input {
+    font-size: 2rem;
+    padding: 1rem;
+    outline: none;
+    border: 1px white solid;
+    &:focus {
+        border: 1px blue solid;
+        border-radius: 5px;
+    }
+}
+:host {
+    display: block;
+    padding: 1rem;
+}

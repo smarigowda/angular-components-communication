@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { StateService } from '../shared/state.service';
 
 @Component({
   selector: 'app-ebay',
@@ -6,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ebay.component.scss']
 })
 export class EbayComponent implements OnInit {
-
-  constructor() { }
+  searchFor: Observable<string>;
+  constructor(private state: StateService) {
+    this.searchFor = state.getState()
+  }
 
   ngOnInit(): void {
   }

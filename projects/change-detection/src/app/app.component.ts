@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'change-detection';
+  myGreeting = 'Hello';
+  myUser: { name: string } = {
+    name: 'Santosh Marigowda'
+  }
 }

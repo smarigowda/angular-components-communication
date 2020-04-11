@@ -244,6 +244,149 @@
           }
         }
       }
+    },
+    "mediator-service-subject": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/mediator-service-subject",
+      "sourceRoot": "projects/mediator-service-subject/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/mediator-service-subject",
+            "index": "projects/mediator-service-subject/src/index.html",
+            "main": "projects/mediator-service-subject/src/main.ts",
+            "polyfills": "projects/mediator-service-subject/src/polyfills.ts",
+            "tsConfig": "projects/mediator-service-subject/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/mediator-service-subject/src/favicon.ico",
+              "projects/mediator-service-subject/src/assets"
+            ],
+            "styles": [
+              "projects/mediator-service-subject/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/mediator-service-subject/src/environments/environment.ts",
+                  "with": "projects/mediator-service-subject/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "mediator-service-subject:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mediator-service-subject:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mediator-service-subject:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mediator-service-subject/src/test.ts",
+            "polyfills": "projects/mediator-service-subject/src/polyfills.ts",
+            "tsConfig": "projects/mediator-service-subject/tsconfig.spec.json",
+            "karmaConfig": "projects/mediator-service-subject/karma.conf.js",
+            "assets": [
+              "projects/mediator-service-subject/src/favicon.ico",
+              "projects/mediator-service-subject/src/assets"
+            ],
+            "styles": [
+              "projects/mediator-service-subject/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mediator-service-subject/tsconfig.app.json",
+              "projects/mediator-service-subject/tsconfig.spec.json",
+              "projects/mediator-service-subject/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/mediator-service-subject/e2e/protractor.conf.js",
+            "devServerTarget": "mediator-service-subject:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "mediator-service-subject:serve:production"
+            }
+          }
+        }
+      }
     }},
   "cli": {
     "analytics": "22760ea5-b01d-449a-98e3-c15ecb21adaa"
